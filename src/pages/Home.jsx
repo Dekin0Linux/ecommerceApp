@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import {FaCalendarAlt,FaTruckMoving,FaCreditCard,FaShoppingCart} from 'react-icons/fa'
 import Item from '../components/Item'
+import { Link } from 'react-router-dom'
 
 function Home() {
     const [category,setCategory] = useState([])
@@ -51,14 +52,14 @@ function Home() {
                     
                 </div>
 
-                <div className='flex justify-between md:gap-4 md:h-[45%] my-5'>
+                <div className='md:flex justify-between md:gap-4 md:h-[45%] my-5 hidden '>
                     <div className='md:p-6 md:w-[35%]'>
                         <h4 className='font-semibold text-xl text-black'>BEST <br /> HEADSETS</h4>
                         <img src='https://i.pinimg.com/originals/d9/db/11/d9db11953a2d185d37246bb1f500c957.png' alt="img1" className='md:w-[120px]'/>
                     </div>
                     <div className='md:p-6 md:w-[35%] '>
                         <h4 className='font-semibold text-xl text-black'>PHONES</h4>
-                        <img src='https://blog.thebigphonestore.co.uk/wp-content/uploads/2017/10/Apple-IPhone-PNG-Picture.png' alt="img1" className='md:w-[120px]'/>
+                        <img src='https://blog.thebigphonestore.co.uk/wp-content/uploads/2017/10/Apple-IPhone-PNG-Picture.png' alt="img1" className='md:w-[120px] ' />
                     </div>
                     <div className='md:p-6 md:w-[35%] '>
                         <h4 className='font-semibold text-xl text-black'>BEST <br /> HEADSETS</h4>
@@ -101,7 +102,10 @@ function Home() {
             <div className='flex justify-between flex-wrap gap-1 items-start'>
                 {
                     products.map((item,index)=>(
-                        <Item item={item} key={index}/>
+                        
+                            <Item item={item} key={index}/>
+                        
+                       
                     ))
                 }
 
