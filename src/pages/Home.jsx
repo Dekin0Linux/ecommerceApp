@@ -1,7 +1,6 @@
 import React,{useEffect,useState} from 'react'
-import {FaCalendarAlt,FaTruckMoving,FaCreditCard,FaShoppingCart} from 'react-icons/fa'
+import {FaCalendarAlt,FaTruckMoving,FaCreditCard} from 'react-icons/fa'
 import Item from '../components/Item'
-import { Link } from 'react-router-dom'
 
 function Home() {
     const [category,setCategory] = useState([])

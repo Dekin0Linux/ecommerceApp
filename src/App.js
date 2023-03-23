@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 
-import { BrowserRouter,Routes,Route ,Switch} from 'react-router-dom';
+import { BrowserRouter,Routes,Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Cart from './pages/Cart';
 import Shipping from './pages/Shipping';
