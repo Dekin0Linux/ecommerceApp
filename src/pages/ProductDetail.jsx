@@ -1,14 +1,14 @@
 import React,{useState,useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import {FaMinus,FaPlus} from 'react-icons/fa'
-import { useDispatch,useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { addItemToCart } from '../store/cartReducer'
 
 function ProductDetail() {
   const {id} = useParams()
   const [product,setProduct] = useState([])
   const [quantity,setQuantity] = useState(1)
-  const [cart,setCart] = useState([])
+  // const [cart,setCart] = useState([])
 
   const dispatch = useDispatch()
 
@@ -24,7 +24,7 @@ function ProductDetail() {
   }
 
   const removeQuantity = ()=>{
-    if(quantity == 1){
+    if(quantity === 1){
       return ;
     }
     setQuantity(prevQuantity => prevQuantity - 1)
@@ -33,7 +33,7 @@ function ProductDetail() {
   useEffect(() => {
    getProduct()
 
-  }, [])
+  },[])
 
 
 
