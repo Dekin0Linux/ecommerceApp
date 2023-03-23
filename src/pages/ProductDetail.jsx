@@ -44,7 +44,7 @@ function ProductDetail() {
       <div className='md:flex md:mt-0 p-5 lg:w-[80%] mx-auto '>
 
         <div className='mb-8 md:mb-0 md:ml-0'>
-          <img src={product.image} alt="image" className='md:w-[100%] w-[65%] lg:w-10/12 ml-20 md:ml-0'/>
+          <img src={product.image} alt={product.title} className='md:w-[100%] w-[65%] lg:w-10/12 ml-20 md:ml-0'/>
         </div>
 
         <div className='md:ml-10'>

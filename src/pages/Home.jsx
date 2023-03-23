@@ -42,7 +42,7 @@ function Home() {
             <div className='md:flex-1'>
 
                 <div className='bg-blue-400 md:h-[50%] md:mb-9 md:flex justify-between px-20'>
-                    <img src="https://media.croma.com/image/upload/v1662424567/Croma%20Assets/Communication/Mobiles/Images/229922_biq8sa.png" alt="" />
+                    <img src="https://media.croma.com/image/upload/v1662424567/Croma%20Assets/Communication/Mobiles/Images/229922_biq8sa.png" alt="testImg" />
 
                     <div className='md:mt-20 text-white hidden lg:block'>
                         <p className='font-semibold md:text-3xl '>BIG SALE ON OUR PRODUCTS</p>
@@ -58,11 +58,11 @@ function Home() {
                     </div>
                     <div className='md:p-6 md:w-[35%] '>
                         <h4 className='font-semibold text-xl text-black'>PHONES</h4>
-                        <img src='https://blog.thebigphonestore.co.uk/wp-content/uploads/2017/10/Apple-IPhone-PNG-Picture.png' alt="img1" className='md:w-[120px] ' />
+                        <img src='https://blog.thebigphonestore.co.uk/wp-content/uploads/2017/10/Apple-IPhone-PNG-Picture.png' alt="img2" className='md:w-[120px] ' />
                     </div>
                     <div className='md:p-6 md:w-[35%] '>
                         <h4 className='font-semibold text-xl text-black'>BEST <br /> HEADSETS</h4>
-                        <img src='https://i.pinimg.com/originals/d9/db/11/d9db11953a2d185d37246bb1f500c957.png' alt="img1" className='md:w-[120px]'/>
+                        <img src='https://i.pinimg.com/originals/d9/db/11/d9db11953a2d185d37246bb1f500c957.png' alt="img3" className='md:w-[120px]'/>
                     </div>
                     
                 </div>
@@ -103,7 +103,6 @@ function Home() {
                     products.map((item,index)=>(
                         
                             <Item item={item} key={index}/>
-                        
                        
                     ))
                 }

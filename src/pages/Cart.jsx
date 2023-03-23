@@ -26,7 +26,7 @@ function Cart() {
                                 
                                 <div className='flex w-[60%] gap-2'>
                                     <Link to={`/productdetails/${item.id}`}>
-                                        <img src={item.image} alt="" className='w-12 h-auto'/>
+                                        <img src={item.image} alt={item.id} className='w-12 h-auto'/>
                                     </Link>
                                     <p>{item.title}</p>
                                 </div>

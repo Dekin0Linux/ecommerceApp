@@ -47,7 +47,7 @@ function Shipping() {
                                 
                                 <div className='flex w-[70%] gap-2'>
                                     <Link to={`/productdetails/${item.id}`}>
-                                        <img src={item.image} alt="" className='w-12 h-auto'/>
+                                        <img src={item.image} alt={item.id} className='w-12 h-auto'/>
                                     </Link>
                                     <small className='overflow-hidde'>{item.title}</small>
                                 </div>
