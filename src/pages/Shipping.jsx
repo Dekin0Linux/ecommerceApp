@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useSelector ,useDispatch} from 'react-redux'
+import { useSelector} from 'react-redux'
 
 function Shipping() {
   const cart = useSelector(state=> state.cart.value)
-  const dispatch = useDispatch()
   const total =  cart.reduce((total, item) => total + item.quantity * item.price, 0);
 
   return (
