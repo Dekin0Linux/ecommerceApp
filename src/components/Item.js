@@ -1,5 +1,5 @@
 import React from 'react'
-import {FaCalendarAlt,FaTruckMoving,FaCreditCard,FaShoppingCart} from 'react-icons/fa'
+import {FaShoppingCart} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 
