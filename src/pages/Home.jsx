@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import {FaCalendarAlt,FaTruckMoving,FaCreditCard} from 'react-icons/fa'
 import Item from '../components/Item'
+import { Link } from 'react-router-dom'
 
 function Home() {
     const [category,setCategory] = useState([])
@@ -34,7 +35,9 @@ function Home() {
             <div className='shadow-xl md:w-60 w-full flex md:block justify-between'>
                 {
                  category.map((item,index)=>(
-                    <div key={index}><p className='mb-10 hover:shadow-md p-4 capitalize font-medium text-xl'>{item}</p></div>
+                    <Link key={index}>
+                        <p className='mb-10 hover:shadow-md p-4 capitalize font-medium md:text-xl'>{item}</p>
+                    </Link>
                  ))
                 }
             </div>

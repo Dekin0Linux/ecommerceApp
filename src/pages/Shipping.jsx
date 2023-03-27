@@ -10,7 +10,7 @@ function Shipping() {
     <div  className='container mx-auto p-5'>   
         <div className='p-2 flex gap-5 items-start flex-wrap'>
 
-            <form className='bg-blue-100 p-5 md:w-[60%]'>
+            <form className='bg-white p-5 md:w-[60%]'>
               <p className='font-semibold text-xl'>Shipping Detail</p>
               <div action="" className='mt-5'>
                 <div className='md:flex gap-x-5 mb-8'>

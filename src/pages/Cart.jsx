@@ -20,25 +20,26 @@ function Cart() {
                 <div className=''>
                     {
                         cart.map((item,index)=>(
-                            <div className='md:flex mb-3 px-3 bg-gray-100 p-5 items-center' key={index}>
+                            <div className='flex justify-between mb-3 md:px-3 bg-gray-100 md:p-5 items-center' key={index}>
                                 
-                                <div className='flex w-[60%] gap-2'>
+                                <div className='md:flex md:w-[45%] gap-2 '>
                                     <Link to={`/productdetails/${item.id}`}>
                                         <img src={item.image} alt={item.id} className='w-12 h-auto'/>
                                     </Link>
-                                    <p>{item.title}</p>
+                                    <p className='text-sm'>{item.title}</p>
                                 </div>
                                 
 
-                                <div className='w-[20%] flex'>
-                                    <button className='bg-gray-200 px-3' onClick={()=>dispatch(decreaseQuantity(index))}><FaMinus/></button>
-                                   <p className='px-4'>{item.quantity}</p>
-                                   <button className='bg-gray-200 px-3' onClick={()=>dispatch(increaseQuantity(index))}><FaPlus/></button>
+                                <div className='w-[20%] md:w-[20%] flex'>
+                                    <button className='bg-gray-200 md:px-3' onClick={()=>dispatch(decreaseQuantity(index))}><FaMinus/></button>
+                                   <p className='md:px-4 px-1'>{item.quantity}</p>
+                                   <button className='bg-gray-200 md:px-3' onClick={()=>dispatch(increaseQuantity(index))}><FaPlus/></button>
                                 </div>
 
-                                <div className='w-[20%]'>
+                                <div className='md:w-[20%] '>
                                     <p className='font-bold'>GHC {(item.price * item.quantity).toFixed(2)}</p>
                                 </div>
+
                                 <div onClick={()=>dispatch(removeItemFromCart(index))}>
                                     <FaTrashAlt color='red'/>
                                 </div>
