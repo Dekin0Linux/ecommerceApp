@@ -26,7 +26,7 @@ function Cart() {
                                     <Link to={`/productdetails/${item.id}`}>
                                         <img src={item.image} alt={item.id} className='w-12 h-auto'/>
                                     </Link>
-                                    <p className='text-sm'>{item.title}</p>
+                                    <p className='text-smmd:text-xl'>{item.title}</p>
                                 </div>
                                 
 
