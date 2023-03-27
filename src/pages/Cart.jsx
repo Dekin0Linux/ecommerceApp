@@ -13,16 +13,14 @@ function Cart() {
 
   return (
     <div  className='container mx-auto p-5'>   
-        <div className='p-2 flex gap-1 items-start flex-wrap'>
+        <div className='p-2 md:flex gap-1 items-start flex-wrap'>
             <div className='bg-white p-2 md:w-[75%]'>
                 <p className='text-3xl px-4 my-10'>My cart ({cart.length})</p>
                 
                 <div className=''>
                     {
                         cart.map((item,index)=>(
-                            
-                            
-                            <div className='flex mb-3 px-3 bg-gray-100 p-5 items-center' key={index}>
+                            <div className='md:flex mb-3 px-3 bg-gray-100 p-5 items-center' key={index}>
                                 
                                 <div className='flex w-[60%] gap-2'>
                                     <Link to={`/productdetails/${item.id}`}>
@@ -46,8 +44,6 @@ function Cart() {
                                 </div>
                                 
                             </div>
-                            
-                            
                         ))
                     }
                     
