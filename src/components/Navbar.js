@@ -26,7 +26,7 @@ function Navbar() {
                     <FaShoppingCart size={25}/>
                     <div  className='absolute top-[-6px] right-[-5px] bg-green-800 w-5 h-5 rounded-3xl text-center text-white flex justify-center items-center text-sm'>{cart.length}</div>
                 </Link>
-                <div ><FaUserAlt size={25} /></div>
+                <Link to={'/Login'}><FaUserAlt size={25} /></Link>
             </div>
 
         </div>

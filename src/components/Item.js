@@ -1,5 +1,5 @@
 import React from 'react'
-import {FaShoppingCart} from 'react-icons/fa'
+// import {FaShoppingCart} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 
@@ -11,7 +11,7 @@ function Item({item}) {
             <p className='font-bold'>{item.title}</p>
             <small>{item.category}</small>
             <p className='text-purple-600 font-semibold text-lg'>GHC {item.price}</p>
-            <button className='bg-green-500 absolute top-2 right-2 p-2 rounded-lg'><FaShoppingCart size={18} color={'white'}/></button>
+            {/* <button className='bg-green-500 absolute top-2 right-2 p-2 rounded-lg'><FaShoppingCart size={18} color={'white'}/></button> */}
         </div>
     </Link>
   )

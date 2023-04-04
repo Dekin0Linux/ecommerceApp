@@ -1,10 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 import { useSelector} from 'react-redux'
 
 function Shipping() {
   const cart = useSelector(state=> state.cart.value)
   const total =  cart.reduce((total, item) => total + item.quantity * item.price, 0);
+
+  let navigate = useNavigate()
 
   return (
     <div  className='container mx-auto p-5'>   
@@ -63,9 +65,8 @@ function Shipping() {
                         ))
                     }
                     <p className='font-semibold text-gray-500'>Total cost : GHC {total}</p>
-                    <Link to={'/'} >
-                      <button className='bg-green-500 w-full py-2 text-white font-semibold my-4'> PAY NOW </button>
-                    </Link>
+                    
+                      <button className='bg-green-500 w-full py-2 text-white font-semibold my-4' onClick={()=>navigate('/confirm')}> PAY NOW </button>
               </div>
                 
             </div>

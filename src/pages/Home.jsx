@@ -35,7 +35,7 @@ function Home() {
             <div className='shadow-xl md:w-60 w-full flex md:block justify-between'>
                 {
                  category.map((item,index)=>(
-                    <Link key={index}>
+                    <Link to={`/category/${item}`} key={index}>
                         <p className='mb-10 hover:shadow-md p-4 capitalize font-medium md:text-xl'>{item}</p>
                     </Link>
                  ))
