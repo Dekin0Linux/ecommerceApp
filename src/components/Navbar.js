@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {FaRegHeart,FaShoppingCart,FaUserAlt} from 'react-icons/fa'
-import { useSelector} from 'react-redux'
+import { useSelector,useDispatch} from 'react-redux'
+import { searchName } from '../store/cartReducer'
 import { Link } from 'react-router-dom'
 
 function Navbar() {
     const cart = useSelector(state=> state.cart.value)
+    const [search,setSearch] = useState('')
+    const dispatch= useDispatch()
+
+    const handleSearch=(e)=>{
+        e.preventDefault();
+        
+            setSearch(e.target.value)
+
+            dispatch(searchName(search))
+    }
 
 
   return (
@@ -15,10 +26,10 @@ function Navbar() {
                 <img src="https://seeklogo.com/images/M/magento-logo-3EDB101875-seeklogo.com.png" alt="" className='w-10 md:w-90'/>
             </Link>
 
-            <div className='lg:mx-60 md:mx-20 border border-gray-500  md:w-[60%] my-3 md:my-0 lg:w-[100%]'>
-                <input type="text" className='py-1 px-3 lg:w-[80%] w-[80%] outline-0'  placeholder='Search for products'/>
-                <input type="submit" value="Search" className='bg-green-800 text-white py-1 w-[20%] '/>
-            </div>
+            <form className=' md:mx-20 border border-gray-500 w-[80%]   my-3 md:my-0'>
+                <input type="search" onChange={handleSearch} className='py-1 px-3 lg:w-[100%] w-[80%] outline-0'  placeholder='Search for products'/>
+                {/* <input type="submit" value="Search" className='bg-green-800 text-white py-1 w-[20%] '/> */}
+            </form>
 
             <div className='flex gap-x-5'>
                 <FaRegHeart size={25}/>

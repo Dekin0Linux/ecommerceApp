@@ -18,7 +18,8 @@ const notify = (msg,status) => {
 export const cartSlice = createSlice({
     name: 'cart',
     initialState : {
-        value:[].reverse()
+        value:[].reverse(),
+        name : ''
     },
 
     reducers :{
@@ -51,11 +52,14 @@ export const cartSlice = createSlice({
             }
             state.value[action.payload].quantity -= 1
         },
+        searchName : (state,action)=>{
+            state.name = action.payload
+        }
         
         
     }
 })
 
-export const {addItemToCart,removeItemFromCart,increaseQuantity,decreaseQuantity} = cartSlice.actions
+export const {addItemToCart,removeItemFromCart,increaseQuantity,decreaseQuantity,searchName} = cartSlice.actions
 
 export default cartSlice.reducer

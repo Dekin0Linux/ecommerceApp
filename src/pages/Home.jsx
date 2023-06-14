@@ -2,10 +2,14 @@ import React,{useEffect,useState} from 'react'
 import {FaCalendarAlt,FaTruckMoving,FaCreditCard} from 'react-icons/fa'
 import Item from '../components/Item'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 function Home() {
     const [category,setCategory] = useState([])
     const [products,setProducts] = useState([])
+    const [filtered,setFiltered] = useState([])
+    const searchTerm = useSelector(state=> state.cart.name)
+
     
     //get catergories
     const getCategory = ()=>{
@@ -21,16 +25,35 @@ function Home() {
         .then(data=>setProducts(data))
     }
 
+    //getSearchProduct
+    const getSearchProduct =()=>{
+        if(searchTerm == 'undefined'){
+            return
+        }
+        const searched = products && products.filter((item)=>item.title.toLowerCase().includes(searchTerm.toLowerCase()))
+        setFiltered(searched) 
+    }
+
     useEffect(()=>{
         getCategory()
-        getProduct()
-    },[])
+
+        if(searchTerm != ''){
+            getSearchProduct()
+        }{
+            getProduct()
+        }
+    },[searchTerm])
     
 
 
   return (
     <div className='container mx-auto'>
         {/* top side  */}
+
+        {
+             searchTerm != '' && filtered != [] ? '' :
+            (
+         
         <div className='bg-white md:flex md:h-[600px] md:gap-x-5 gap-y-10'>
             <div className='shadow-xl md:w-60 w-full flex md:block justify-between'>
                 {
@@ -72,7 +95,14 @@ function Home() {
             </div>
         </div>
 
+        )}
+    
+
         {/* info */}
+        {
+            searchTerm != '' && filtered != [] ? '' :
+            (
+        
         <div className='bg-white shadow-xl md:p-5 p-2 md:py-10 md:flex md:justify-between md:items-center rounded-sm md:my-10 my-5 gap-x-10'>
 
             <div className='inline-flex items-center justify-between gap-x-5'>
@@ -98,17 +128,41 @@ function Home() {
             </div>
         </div>
 
+        )}
+
+        {
+            searchTerm != '' && filtered != [] ? 
+            (
+                <div className='shadow-lg p-10 bg-white'>
+                <p className='font-bold text-2xl'>{filtered.length < 1 ? "No items found": ''}</p>
+                    <div className='flex flex-wrap gap-1 items-start'>
+                        {
+                            filtered.map((item,index)=>(
+                                    <Item item={item} key={index}/>
+                            ))
+                        }
+                        
+                    </div>
+                </div>
+            ) : 
+            (
+                <div className='shadow-lg p-10 bg-white'>
+                <p className='font-bold text-2xl'>Our Products</p>
+                <div className='flex justify-between flex-wrap gap-1 items-start'>
+                    {
+                        products.map((item,index)=>(
+                                <Item item={item} key={index}/>
+                        ))
+                    }
+                </div>
+                </div>
+            )
+        }
+
+       
+
         {/* Prodcuts */}
-        <div className='shadow-lg p-10 bg-white'>
-            <p className='font-bold text-2xl'>Our Products</p>
-            <div className='flex justify-between flex-wrap gap-1 items-start'>
-                {
-                    products.map((item,index)=>(
-                            <Item item={item} key={index}/>
-                    ))
-                }
-            </div>
-        </div>
+        
         
     </div>
   )
