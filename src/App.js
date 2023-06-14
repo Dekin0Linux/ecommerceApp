@@ -4,6 +4,9 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 
+
+
+
 import { BrowserRouter,Routes,Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Cart from './pages/Cart';
@@ -15,7 +18,7 @@ import SignUp from './pages/SignUp';
 
 function App() {
   return (
-    <div className='bg-slate-200 w-full'>
+    <div className='bg-white w-full'>
       <BrowserRouter>
       <Navbar/>
         <Routes>

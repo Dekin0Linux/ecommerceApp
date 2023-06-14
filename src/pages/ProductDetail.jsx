@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import {FaMinus,FaPlus} from 'react-icons/fa'
 import { useDispatch} from 'react-redux'
 import { addItemToCart } from '../store/cartReducer'
+import { ToastContainer } from 'react-toastify';
 
 function ProductDetail() {
   const {id} = useParams()
@@ -40,6 +41,7 @@ function ProductDetail() {
 
   return (
     <div className='container mx-auto '>
+      <ToastContainer />
 
       <div className='md:flex md:mt-0 p-5 lg:w-[80%] mx-auto '>
 
@@ -48,20 +50,20 @@ function ProductDetail() {
         </div>
 
         <div className='md:ml-10'>
-          <p className='font-semibold text-2xl mb-5'>{product.title}</p>
+          <p className='font-semibold md:text-4xl  mb-5'>{product.title}</p>
           <p className='my-5'>{product.description}</p>
 
-          <p className='font-semibold text-xl'>GHC {product.price }</p>
+          <p className='font-semibold text-slate-400 text-3xl'>GHC {product.price }</p>
 
-          <div className='inline-flex border border-gray-500 my-3 rounded-md'>
-            <button className='px-3 border-r-2 border-gray-300' onClick={removeQuantity}><FaMinus/></button>
+          <div className='inline-flex border border-gray-500 my-3 rounded-lg'>
+            <button className='p-6 border-r-2 border-gray-300' onClick={removeQuantity}><FaMinus/></button>
 
-            <div className='px-3'>{quantity}</div>
+            <div className='p-6 font-bold text-2xl'>{quantity}</div>
 
-            <button className='px-3 border-l-2 border-gray-300' onClick={addQuantity}><FaPlus/></button>
+            <button className='p-6 border-l-2 border-gray-300' onClick={addQuantity}><FaPlus/></button>
           </div> <br />
 
-          <button className='bg-purple-800 px-3 py-1 text-white' onClick={()=>dispatch(addItemToCart({...product,quantity}))}>Add to Cart</button>
+          <button className='bg-purple-800 p-6 text-white' onClick={()=>dispatch(addItemToCart({...product,quantity}))}>Add to Cart</button>
 
           <div>
             <p className='font-bold text-orange-500 text-2xl my-5'></p>
@@ -70,7 +72,7 @@ function ProductDetail() {
       </div>
 
       <div>
-        <p>{product.description}</p>
+        {/* <p>{product.description}</p> */}
       </div>
     </div>
   )

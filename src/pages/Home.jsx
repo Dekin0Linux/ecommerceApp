@@ -104,12 +104,9 @@ function Home() {
             <div className='flex justify-between flex-wrap gap-1 items-start'>
                 {
                     products.map((item,index)=>(
-                        
                             <Item item={item} key={index}/>
-                       
                     ))
                 }
-
             </div>
         </div>
         
