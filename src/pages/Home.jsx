@@ -36,13 +36,14 @@ function Home() {
 
     useEffect(()=>{
         getCategory()
+        getSearchProduct()
 
         if(searchTerm !== ''){
             getSearchProduct()
         }else{
             getProduct()
         }
-    },[searchTerm])
+    })
 
     // ,[searchTerm]
     
