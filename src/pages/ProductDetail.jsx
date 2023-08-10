@@ -56,14 +56,14 @@ function ProductDetail() {
           <p className='font-semibold text-slate-400 text-3xl'>GHC {product.price }</p>
 
           <div className='inline-flex border border-gray-500 my-3 rounded-lg'>
-            <button className='p-6 border-r-2 border-gray-300' onClick={removeQuantity}><FaMinus/></button>
+            <button className='px-6 py-2 border-r-2 border-gray-300' onClick={removeQuantity}><FaMinus/></button>
 
-            <div className='p-6 font-bold text-2xl'>{quantity}</div>
+            <div className='px-6 py-2 font-bold text-2xl'>{quantity}</div>
 
-            <button className='p-6 border-l-2 border-gray-300' onClick={addQuantity}><FaPlus/></button>
+            <button className='px-6 py-2 border-l-2 border-gray-300' onClick={addQuantity}><FaPlus/></button>
           </div> <br />
 
-          <button className='bg-purple-800 p-6 text-white' onClick={()=>dispatch(addItemToCart({...product,quantity}))}>Add to Cart</button>
+          <button className='bg-purple-800 px-6 py-2 rounded text-white' onClick={()=>dispatch(addItemToCart({...product,quantity}))}>Add to Cart</button>
 
           <div>
             <p className='font-bold text-orange-500 text-2xl my-5'></p>

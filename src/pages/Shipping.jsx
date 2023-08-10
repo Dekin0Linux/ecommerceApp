@@ -1,41 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link ,useNavigate} from 'react-router-dom'
 import { useSelector} from 'react-redux'
+import { PaystackButton } from 'react-paystack'
 
 function Shipping() {
   const cart = useSelector(state=> state.cart.value)
   const total =  cart.reduce((total, item) => total + item.quantity * item.price, 0);
 
+  let amount = total *100
+
   let navigate = useNavigate()
+
+  const [name,setName] = useState('')
+  const [email,setEmail] = useState('')
+  const [address,setAddress] = useState('')
+  const [phone,setPhone] = useState('')
+  const publicKey = process.env.REACT_APP_PUBLIC_KEY
+
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+  }
+
+  // PAYSTACK COMP-PROPS
+  const componentProps = {
+    email,
+    amount,
+    currency : "GHS",
+    metadata: {
+      name,
+      phone,
+    },
+    publicKey,
+    text: "Pay Now",
+    onSuccess: () => {
+      alert('Your Order Is being Processed')
+      navigate('/')
+    }
+      ,
+    onClose: () => alert("Wait! Don't leave :("),
+  }
+
+  
 
   return (
     <div  className='container mx-auto p-5'>   
-        <div className='p-2 flex gap-5 items-start flex-wrap'>
+        <form className='p-2 flex gap-5 items-start flex-wrap' onSubmit={handleSubmit}>
 
-            <form className='bg-white p-5 md:w-[60%]'>
+            <div className='bg-white p-5 md:w-[60%]' >
               <p className='font-semibold text-xl'>Shipping Detail</p>
               <div action="" className='mt-5'>
                 <div className='md:flex gap-x-5 mb-8'>
-                  <input type="text" placeholder='Firstname' className='flex-1 p-2 border rounded-md outline-none w-full md:w-0 mb-8 md:mb-0'/>
-                  <input type="text" placeholder='Lastname' className='flex-1 p-2 border rounded-md outline-none w-full md:w-0 md:mb-0'/>
-                </div>
-                <input type="text" placeholder='Country' className='w-full p-2 mb-8 border rounded-md outline-none'/>
-                <input type="text" placeholder='City' className='w-full p-2 mb-8 border rounded-md outline-none'/>
-                <input type="text" placeholder='Shipping Address' className='w-full p-2 mb-8 border rounded-md outline-none'/>
-                <input type="text" placeholder='Postal Code' className='w-full p-2 mb-8 border rounded-md outline-none'/>
-                <input type="text" placeholder='Phone' className='w-full p-2 mb-8 border rounded-md outline-none'/>
+                  <input type="text" placeholder='Email' className='flex-1 p-2 border rounded-md outline-none w-full md:w-0 mb-8 md:mb-0' onChange={e=>setEmail(e.target.value)} required/>
+                  <input type="text" placeholder='Fullname' className='flex-1 p-2 border rounded-md outline-none w-full md:w-0 md:mb-0' onChange={e=>setName(e.target.value)} required/>
+                  <input type="text" placeholder='Phone' className='flex-1 p-2 border rounded-md outline-none w-full md:w-0 md:mb-0' onChange={e=>setPhone(e.target.value)} required/>
+                  <input type="text" placeholder='Address' className='flex-1 p-2 border rounded-md outline-none w-full md:w-0 md:mb-0' onChange={e=>setAddress(e.target.value)} required/>
 
-                <p className='font-semibold text-lg'>Payment Details</p>
-                <small >Choose payment method</small>
-                <input type="text" placeholder='Card Number' className='w-full p-2 mb-8 mt-3 border rounded-md outline-none'/>
-                <input type="text" placeholder='Name on Card' className='w-full p-2 mb-8 border rounded-md outline-none'/>
-                <div className='md:flex gap-x-5 mb-8'>
-                  <input type="text" placeholder='Expiration Date' className='flex-1 p-2 border rounded-md outline-none w-full md:w-0 mb-8 md:mb-0'/>
-                  <input type="text" placeholder='CVV' className='flex-1 p-2 border rounded-md outline-none w-full md:w-0 md:mb-0'/>
                 </div>
+                
               </div>
                 
-            </form>
+            </div>
            
             <div className='bg-white px-4 md:w-[30%] w-full relative p-5'>
               <p className='font-semibold text-xl'>Your Order</p>
@@ -66,11 +90,11 @@ function Shipping() {
                     }
                     <p className='font-semibold text-gray-500'>Total cost : GHC {total}</p>
                     
-                      <button className='bg-green-500 w-full py-2 text-white font-semibold my-4' onClick={()=>navigate('/confirm')}> PAY NOW </button>
+                      <PaystackButton {...componentProps} type='submit' className='bg-green-500 w-full py-2 text-white font-semibold my-4' /> 
               </div>
                 
             </div>
-        </div>
+        </form>
     </div>
   )
 }

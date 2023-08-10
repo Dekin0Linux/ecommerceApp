@@ -2,15 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from 'react-toastify';
 
 
-const notify = (msg,status) => {
+const notify = (msg,status,position) => {
     if(status === 'added'){
-        toast.success(msg)
+        toast.success(msg,{position})
+        
     }
     if(status === 'already'){
-        toast.error(msg)
+        toast.error(msg,{position})
+        
     }
     if(status === 'removed'){
-        toast.error(msg)
+        toast.error(msg,{position})
+       
     }
 }
 
@@ -31,16 +34,16 @@ export const cartSlice = createSlice({
             const item = state.value.find(item => item.id === action.payload.id)
 
             if(item){
-                notify('Item already Added','already')
+                notify('Item already Added','already',"bottom-center")
                 return state
             }
             state.value.push(action.payload)
-            notify('Item added successfully', 'added')
+            notify('Item added successfully', 'added',"bottom-center")
 
         },
         removeItemFromCart:(state,action)=>{
             state.value.splice(action.payload,1)
-            notify('Item Removed','removed')
+            notify('Item Removed','removed',"bottom-center")
         },
 
         increaseQuantity:(state,action)=>{
