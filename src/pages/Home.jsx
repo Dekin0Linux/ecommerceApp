@@ -27,7 +27,7 @@ function Home() {
 
     //getSearchProduct
     const getSearchProduct =()=>{
-        if(searchTerm == 'undefined'){
+        if(searchTerm === 'undefined'){
             return
         }
         const searched = products && products.filter((item)=>item.title.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -37,12 +37,14 @@ function Home() {
     useEffect(()=>{
         getCategory()
 
-        if(searchTerm != ''){
+        if(searchTerm !== ''){
             getSearchProduct()
-        }{
+        }else{
             getProduct()
         }
     },[searchTerm])
+
+    // ,[searchTerm]
     
 
 
@@ -51,7 +53,7 @@ function Home() {
         {/* top side  */}
 
         {
-             searchTerm != '' && filtered != [] ? '' :
+             searchTerm !== '' && filtered !== [] ? '' :
             (
          
         <div className='bg-white md:flex md:h-[600px] md:gap-x-5 gap-y-10'>
@@ -100,7 +102,7 @@ function Home() {
 
         {/* info */}
         {
-            searchTerm != '' && filtered != [] ? '' :
+            searchTerm !== '' && filtered !== [] ? '' :
             (
         
         <div className='bg-white shadow-xl md:p-5 p-2 md:py-10 md:flex md:justify-between md:items-center rounded-sm md:my-10 my-5 gap-x-10'>
@@ -131,7 +133,7 @@ function Home() {
         )}
 
         {
-            searchTerm != '' && filtered != [] ? 
+            searchTerm !== '' && filtered !== [] ? 
             (
                 <div className='shadow-lg p-10 bg-white'>
                 <p className='font-bold text-2xl'>{filtered.length < 1 ? "No items found": ''}</p>

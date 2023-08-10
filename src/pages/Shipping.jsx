@@ -19,6 +19,7 @@ function Shipping() {
 
   const handleSubmit=(e)=>{
     e.preventDefault()
+    console.log(address)
   }
 
   // PAYSTACK COMP-PROPS
