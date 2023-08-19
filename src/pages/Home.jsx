@@ -30,20 +30,21 @@ function Home() {
         if(searchTerm === 'undefined'){
             return
         }
-        const searched = products && products.filter((item)=>item.title.toLowerCase().includes(searchTerm.toLowerCase()))
-        setFiltered(searched) 
+        // const searched = products && products.filter((item)=>item.title.toLowerCase().includes(searchTerm.toLowerCase()))
+        // setFiltered(searched) 
     }
 
     useEffect(()=>{
         getCategory()
-        getSearchProduct()
+        getProduct()
+        // getSearchProduct()
 
-        if(searchTerm !== ''){
-            getSearchProduct()
-        }else{
-            getProduct()
-        }
-    })
+        // if(searchTerm !== ''){
+        //     getSearchProduct()
+        // }else{
+        //     getProduct()
+        // }
+    },[products])
 
     // ,[searchTerm]
     
