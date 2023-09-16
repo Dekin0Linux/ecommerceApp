@@ -2,13 +2,13 @@ import React,{useEffect,useState} from 'react'
 import {FaCalendarAlt,FaTruckMoving,FaCreditCard} from 'react-icons/fa'
 import Item from '../components/Item'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 
 function Home() {
     const [category,setCategory] = useState([])
     const [products,setProducts] = useState([])
-    const [filtered,setFiltered] = useState([])
-    const searchTerm = useSelector(state=> state.cart.name)
+    // const [filtered,setFiltered] = useState([])
+    // const searchTerm = useSelector(state=> state.cart.name)
 
     
     //get catergories
@@ -25,14 +25,14 @@ function Home() {
         .then(data=>setProducts(data))
     }
 
-    //getSearchProduct
-    const getSearchProduct =()=>{
-        if(searchTerm === 'undefined'){
-            return
-        }
-        // const searched = products && products.filter((item)=>item.title.toLowerCase().includes(searchTerm.toLowerCase()))
-        // setFiltered(searched) 
-    }
+    // //getSearchProduct
+    // const getSearchProduct =()=>{
+    //     if(searchTerm === 'undefined'){
+    //         return
+    //     }
+    //     // const searched = products && products.filter((item)=>item.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    //     // setFiltered(searched) 
+    // }
 
     useEffect(()=>{
         getCategory()
