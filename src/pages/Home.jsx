@@ -54,9 +54,9 @@ function Home() {
     <div className='container mx-auto'>
         {/* top side  */}
 
-        {
+        {/* {
              searchTerm !== '' && filtered !== [] ? '' :
-            (
+            ( */}
          
         <div className='bg-white md:flex md:h-[600px] md:gap-x-5 gap-y-10'>
             <div className='shadow-xl md:w-60 w-full flex md:block justify-between'>
@@ -99,13 +99,13 @@ function Home() {
             </div>
         </div>
 
-        )}
+        {/* )} */}
     
 
         {/* info */}
-        {
+        {/* {
             searchTerm !== '' && filtered !== [] ? '' :
-            (
+            ( */}
         
         <div className='bg-white shadow-xl md:p-5 p-2 md:py-10 md:flex md:justify-between md:items-center rounded-sm md:my-10 my-5 gap-x-10'>
 
@@ -132,25 +132,9 @@ function Home() {
             </div>
         </div>
 
-        )}
+        {/* )} */}
 
-        {
-            searchTerm !== '' && filtered !== [] ? 
-            (
-                <div className='shadow-lg p-10 bg-white'>
-                <p className='font-bold text-2xl'>{filtered.length < 1 ? "No items found": ''}</p>
-                    <div className='flex flex-wrap gap-1 items-start'>
-                        {
-                            filtered.map((item,index)=>(
-                                    <Item item={item} key={index}/>
-                            ))
-                        }
-                        
-                    </div>
-                </div>
-            ) : 
-            (
-                <div className='shadow-lg p-10 bg-white'>
+            <div className='shadow-lg p-10 bg-white'>
                 <p className='font-bold text-2xl'>Our Products</p>
                 <div className='flex justify-between flex-wrap gap-1 items-start'>
                     {
@@ -160,8 +144,7 @@ function Home() {
                     }
                 </div>
                 </div>
-            )
-        }
+        
 
        
 
