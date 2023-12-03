@@ -45,8 +45,8 @@ function ProductDetail() {
 
       <div className='md:flex md:mt-0 p-5 lg:w-[80%] mx-auto '>
 
-        <div className='mb-8 md:mb-0 md:ml-0'>
-          <img src={product.image} alt={product.title} className='md:w-[100%] w-[65%] lg:w-10/12 ml-20 md:ml-0'/>
+        <div className='w-52 '>
+          <img src={product.image} alt={product.title} className='md:w-[100%] w-[100%] object-contain'/>
         </div>
 
         <div className='md:ml-10'>
@@ -55,12 +55,12 @@ function ProductDetail() {
 
           <p className='font-semibold text-slate-400 text-3xl'>GHC {product.price }</p>
 
-          <div className='inline-flex border border-gray-500 my-3 rounded-lg'>
-            <button className='px-6 py-2 border-r-2 border-gray-300' onClick={removeQuantity}><FaMinus/></button>
+          <div className='inline-flex border border-gray-500 my-4 rounded-lg'>
+            <button className='px-4 py-1 border-r-2 border-gray-300' onClick={removeQuantity}><FaMinus/></button>
 
-            <div className='px-6 py-2 font-bold text-2xl'>{quantity}</div>
+            <div className='px-4 py-1 font-bold text-2xl'>{quantity}</div>
 
-            <button className='px-6 py-2 border-l-2 border-gray-300' onClick={addQuantity}><FaPlus/></button>
+            <button className='px-4 py-1 border-l-2 border-gray-300' onClick={addQuantity}><FaPlus/></button>
           </div> <br />
 
           <button className='bg-purple-800 px-6 py-2 rounded text-white' onClick={()=>dispatch(addItemToCart({...product,quantity}))}>Add to Cart</button>
